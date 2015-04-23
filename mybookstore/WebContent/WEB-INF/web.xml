@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app  id="mybookstore" version="2.5">
+  <display-name>Information</display-name>
+
+  <servlet>
+    <description></description>
+    <display-name>register</display-name>
+    <servlet-name>register</servlet-name>
+    <servlet-class>register</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>register</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>register.html</welcome-file>
+  </welcome-file-list>
+  
+</web-app>
