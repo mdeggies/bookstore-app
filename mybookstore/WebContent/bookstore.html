@@ -1,7 +1,242 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="UTF-8">
-<title>Bookstore Page</title>
-<h3>Stuff here</h3>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+body {
+	background-color: #39C;
+	background-image: url(assets/background.jpg);
+	background-attachment: fixed;
+}
+.f-nav{
+	z-index:9999;
+	position: fixed;
+	top: 0;
+	width: 100%;	
+}
+div.scroll {
+height: 500px;
+width: auto;
+position: fixed;
+overflow: visible;
+border: 1px solid #666;
+background-color: #ccc;
+padding: 0px;
+}
+.header {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 56px;
+	font-style: oblique;
+	font-weight: normal;
+	text-transform: none;
+	color: #FFF;
+	width: auto;
+}
+.content{
+	position:fixed;
+	height: 200px;
+	border: 0px solid white;
+	top: 0px;
+	width: 960px;
+	margin: 0px auto;
+}
+.title {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 36px;
+	font-style: italic;
+	line-height: normal;
+	color: #FFF;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
+div.bord
+{
+	top: 200px;
+	width: 1000px;
+	padding: 10px;
+	border: 10px groove #069;
+	/*margin-left: auto;
+	margin-right: auto;*/
+	border-radius: 15px;
+	height: auto;
+	background-color: rgba(0,0,0,0.7);
+}
+div.bordB
+{
+	width: 100px;
+	padding: 10px;
+	border: 4px solid white;
+	margin: 0px;
+	border-radius: 15px;
+	height: 35;
+	background-color: rgba(0,0,0,0.5);
+	text-align: center;
+	font-family: "Courier New", Courier, monospace;
+	color: #FFFFFF;
+}
+
+</style>
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script>
+<script type='text/javascript'>
+$(document).ready(function($) {
+    $("document").ready(function($){
+    var nav = $('.MenuBarHorizontal');
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 240) {
+            nav.addClass("f-nav");
+        } else {
+            nav.removeClass("f-nav");
+        }
+    });
+});
+});
+
+</script>
+<link href="SpryAssets/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css" />
+<script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
+</head>
+
+<body>
+<div align="left"><br />
+  
+  <ul id="MenuBar2" class="MenuBarHorizontal">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#">About us</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="#">Sign-up</a></li>
+  </ul>
+</div>
+<p>&nbsp;</p>
+    <p align="center"><span class="title">Home</span><br />
+      <br /><br />
+    </p>
+<div class = "bord"><table width="1000" border="0" align="center">
+          <tr>
+            <td><p class="text"><br />
+                  <strong>Appetizers</strong></p>
+              <p align="center" class="text"><strong>Spinach &amp; Artichoke Dip </strong><br />
+                Creamy spinach,  tender artichokes and melted cheeses served warm with salsa and tortilla chips.<br />
+              <strong>$6.99</strong></p>
+              <p align="center" class="text"><br />
+                  <strong>Mozzarella Sticks </strong><br />
+                Golden fried  and served with a tasty marinara sauce.<br />
+                <strong>$6.99</strong></p>
+              <p align="center" class="text"><br />
+                <strong>Chicken Quesadilla </strong><br />
+                Two large flour  tortillas stuffed with grilled chipotle chicken, melted cheese, and a hint of  chipotle pepper.<br />
+                <strong>$7.99</strong></p>
+              <p align="center" class="text"><br />
+                <strong>Buffalo Wings </strong><br />
+                Boneless  chicken lightly breaded and tossed in classic, honey BBQ sauce.<br />
+                <strong>$7.99</strong></p>
+              <p align="center" class="text"><br />
+              <strong>Salads<br />
+              </strong><br />
+                  <strong>Grilled Chicken Caesar Salad </strong><br />
+                Juicy grilled  chicken breast atop a bed of crisp romaine lettuce tossed in our Caesar  dressing. Topped with croutons and shaved Parmesan cheese.<br />
+              <strong>$8.99</strong></p>
+              <p align="center" class="text"><br />
+                <strong>Chicken Salad </strong><br />
+                Juicy grilled  chicken, Colby Jack cheese, tomatoes and eggs on fresh salad greens. Served  with honey mustard dressing.<br />
+              <strong>$8.99</strong></p>
+              <p align="center" class="text"><br />
+                <strong>Grilled Shrimp 'N Spinach Salad </strong><br />
+                Tender spinach,  crisp bacon, roasted red peppers, toasted almonds, and hot bacon vinaigrette  topped with grilled shrimp.<br />
+                <strong>$9.49</strong></p>
+              <p align="center" class="text"><strong><br />
+              Sandwiches</strong><br />
+                <br />
+                <strong>Steak Burger </strong><strong>&nbsp;</strong><br />
+                Ten ounces of  thick, juicy chopped sirloin burger topped with cheddar cheese and crispy  smoked bacon and served on a toasted bun.<br />
+              <strong>$8.99</strong></p>
+              <p align="center" class="text"><br />
+                <strong>Barbeque Burger <br />
+                </strong>Topped with a  crunchy onion ring, honey BBQ sauce, cheddar cheese.<br />
+                <strong>$7.99</strong></p>
+              <p align="center" class="text"><br />
+                  <strong>Chicken Fajita Rollup                  </strong><br />
+                Chipotle  chicken rolled in a flour tortilla with melted cheeses, shredded lettuce and pico de gallo. Served with spicy  ranch dipping sauce.<br />
+              <strong>$7.99</strong></p>
+              <p align="center" class="text"><br />
+                <strong>Club Sandwich </strong><br />
+                Sliced ham,  oven-roasted turkey, provolone cheese, bacon, lettuce and tomato. <br />
+              <strong>$7.99</strong>              </p>
+              <p align="right" class="text"><strong>&nbsp;</strong></p>
+              <p align="right" class="text"><strong>&nbsp;</strong></p>
+              <p class="text"><strong>Entrees<br />
+              </strong><br />
+                  <strong>Chicken Parmesan</strong>
+                  <br />
+                Lightly breaded  in our special seasonings, this chicken breast is topped with marinara sauce  and a layer of mozzarella, provolone, and Parmesan cheeses. Served with pasta  marinara.<br />
+              <strong>$10.99</strong></p>
+              <p align="center" class="text"><strong>&nbsp;</strong><strong>Mushroom Chicken </strong><br />
+                Seasoned  grilled chicken breast smothered with mushrooms and mozzarella cheese. Served  with mashed potatoes and seasonal vegetables.<br />
+              <strong>$9.75</strong></p>
+              <p align="center" class="text"><strong>Fish &amp; Chips </strong><br />
+                Whitefish  fillets, hand-dipped in a light batter and golden fried. Served with fries, cole slaw and tartar sauce.<br />
+                <strong>$8.99</strong></p>
+              <p align="center" class="text"><strong>Maple Glazed Salmon<br />
+              </strong><strong>&nbsp;</strong>Grilled  seasoned salmon topped with a caramelized brown sugar and maple syrup. Served  with rice pilaf and a house salad.<br />
+              <strong>$12.29</strong></p>
+              <p align="center" class="text"><strong>12 oz. New York  Strip </strong><br />
+                Known for its  high quality and tremendous flavor, our New York Strip is a juicy, tender cut.<br />
+              <strong>$15.49</strong></p>
+              <p align="center" class="text"><br />
+                <strong>12 oz. Ribeye </strong><br />
+              Lots of flavor  in this delicious cut of steak<br />
+              <strong>$15.99<br />
+              </strong><br />
+                <strong>7 oz. House Sirloin </strong><br />
+                <br />
+                A petite  version of our classic sirloin.<br />
+              <strong>$9.99</strong></p>
+              <p align="center" class="text">&nbsp;</p>
+              <p align="center" class="text"><strong>Children&rsquo;s Menu</strong></p>
+              <p align="center" class="text"><strong>Chicken Fingers</strong><br />
+                Crispy chicken  fingers and French fries.<br />
+              &nbsp;&nbsp;&nbsp;<strong>$4.99</strong></p>
+              <p align="center" class="text"><br />
+                <strong>Cheeseburger</strong><br />
+                Cheeseburger  and French fries.<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;<strong>$4.99</strong><br />
+              <br />
+              </p>
+              <p align="center" class="text"><strong>Macaroni &amp; Cheese</strong><br />
+                Creamy macaroni  and cheese with lots of cheese and noodles. <br />
+              &nbsp;&nbsp;&nbsp;&nbsp; <strong>$3.99</strong><br />
+              <br />
+              </p>
+              <p class="text"><strong>Beverages</strong><br />
+                  <strong>Pepsi, Diet Pepsi, Mountain Dew, Lemonade</strong><br />
+                  <strong>Root Beer, Iced Tea, Coffee </strong><br />
+                  <strong>$1.95</strong><br />
+              <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong> </p>
+              <p align="center" class="text"><strong>&nbsp;</strong></p>
+              <p class="text"><strong>Desserts</strong></p>
+              <p align="center" class="text"><strong>Sizzling Apple Pie </strong><br />
+                A Skillet  Sensation&reg; that would make grandma proud! Layer upon layer of apple atop a  light, flaky crust topped with pecan streusel, rich caramel butter sauce and a  scoop of vanilla ice cream.<br />
+              <strong>$4.50</strong></p>
+              <p align="center" class="text"><br />
+                <strong>Brownie Deluxe</strong><br />
+                Delicious  chocolate brownie served warm with a scoop of vanilla ice cream<br />
+              <strong>$5.49</strong></p>
+              <p align="center" class="text"><br />
+                <strong>Chocolate Cake</strong><br />
+                A delicious,  moist chocolate cake topped with both dark and white chocolate icing. Served  with vanilla ice cream and hot fudge.<br />
+              <strong>$5.69</strong></p></td>
+          </tr>
+</table></div>
+  </blockquote>
+</blockquote>
+  </blockquote>
+</blockquote>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<script type="text/javascript">
+var MenuBar2 = new Spry.Widget.MenuBar("MenuBar2", {imgDown:"SpryAssets/SpryMenuBarDownHover.gif", imgRight:"SpryAssets/SpryMenuBarRightHover.gif"});
+</script>
+</body>
 </html>
