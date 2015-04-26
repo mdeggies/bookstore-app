@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<title>Untitled Document</title>
+<title>Bookstore</title>
 <style type="text/css">
 body {
 	background-color: "white";
@@ -16,6 +16,7 @@ body {
 	position: fixed;
 	top: 0;
 	width: 100%;	
+	left: 110px;
 }
 div.scroll {
 height: 500px;
@@ -52,6 +53,8 @@ padding: 0px;
 	margin-right: auto;
 	margin-left: auto;
 	text-align: center;
+	position: relative;
+	left: -20px;
 }
 div.bord
 {
@@ -78,6 +81,11 @@ div.bordB
 	text-align: center;
 	font-family: "Courier New", Courier, monospace;
 	color: #FFFFFF;
+}
+div.pos
+{
+	position: relative;
+	left: -410px;
 }
 
 </style>
@@ -107,10 +115,12 @@ $(document).ready(function($) {
 <div align="center"><br />
   
   <ul id="MenuBar2" class="MenuBarHorizontal">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="#">About us</a></li>
-    <li><a href="menu.html">Menu</a></li>
-    <li><a href="#">Sign-up</a></li>
+    <li><a href="bookstore.html">Home</a></li>
+    <li><a href="#">Mystery</a></li>
+    <li><a href="menu.html">Fiction</a></li>
+    <li><a href="#">Non-Fiction</a></li>
+    <li><a href="#">Horror</a></li>
+    <li><a href="#">Adult</a></li>
   </ul>
 </div>
 <br />
@@ -118,31 +128,39 @@ $(document).ready(function($) {
 <div class = "bord">
 <table width = "1000" border = "0" align = "center">
 <tr><td>
-<p align = "center"><span class = "title">Featured Books!</span></p>
+<p align = "center"><span class = "title">Featured Books</span></p>
 </td></tr></table>
 
-<p align = "center"><img src="assets/matte.jpg" width="700" height="900" alt="banner" /></p>
+<p align = "center"><img src="assets/matte.jpg" width="700" height="900" class = "img-thumbnail" alt="banner" /></p>
+<div class = "pos">
+<div class="container" align = "center">
+				  <button type="button" class="btn btn-default">Buy</button>
+				  <button type = "button" class = "btn btn-primary">Info</button>     
+</div>
+</div>
+<br />
+<p align = "center"><img src="assets/dead.jpg" width="700" height="900" class = "img-thumbnail" alt="banner" /></p>
+<div class = "pos">
 <div class="container" align = "center">
 				  <button type="button" class="btn btn-default">Buy</button>
 				  <button type="button" class="btn btn-primary">Info</button>     
 </div>
+</div>
 <br />
-<p align = "center"><img src="assets/dead.jpg" width="700" height="900" alt="banner" /></p>
+<p align = "center"><img src="assets/grey.jpg" width="700" height="900" class = "img-thumbnail" alt="banner" /></p>
+<div class = "pos">
 <div class="container" align = "center">
 				  <button type="button" class="btn btn-default">Buy</button>
 				  <button type="button" class="btn btn-primary">Info</button>     
 </div>
+</div>
 <br />
-<p align = "center"><img src="assets/grey.jpg" width="700" height="900" alt="banner" /></p>
+<p align = "center"><img src="assets/tattoo.jpg" width="700" height="900" class = "img-thumbnail" alt="banner" /></p>
+<div class = "pos">
 <div class="container" align = "center">
 				  <button type="button" class="btn btn-default">Buy</button>
 				  <button type="button" class="btn btn-primary">Info</button>     
 </div>
-<br />
-<p align = "center"><img src="assets/tattoo.jpg" width="700" height="900" alt="banner" /></p>
-<div class="container" align = "center">
-				  <button type="button" class="btn btn-default">Buy</button>
-				  <button type="button" class="btn btn-primary">Info</button>     
 </div>
 <br />
 </div>

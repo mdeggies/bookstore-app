@@ -41,7 +41,7 @@ public class register extends HttpServlet {
 		String first_name = request.getParameter("first_name");
 		String last_name = request.getParameter("last_name");
 		String address = request.getParameter("address");
-
+		
 		if (username.equals("") || password.equals("") || 
 				first_name.equals("") || last_name.equals("") ||
 				address.equals("")) {
@@ -90,6 +90,9 @@ public class register extends HttpServlet {
 					//send user to login page
 					RequestDispatcher rd = request.getRequestDispatcher("/login.html");
 					rd.include(request, response);
+				}
+				else{
+					out.println("You have failed to register");
 				}
 			}
 		}

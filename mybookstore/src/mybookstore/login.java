@@ -50,9 +50,9 @@ public class login extends HttpServlet {
 				ResultSet rs = pstmt.executeQuery();
 			    
 			    if (rs.next()) {
-			    	out.println("User logged in");
-		            String user=request.getParameter("username");
-		            out.println("<h2> Welcome "+user+"</h2>");
+			    	//out.println("User logged in");
+		            //String user=request.getParameter("username");
+		            //out.println("<h2> Welcome "+user+"</h2>");
 		            //send user to bookstore page 
 					RequestDispatcher rd = 
 							request.getRequestDispatcher("/bookstore.html");
