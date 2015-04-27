@@ -4,29 +4,55 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<style type="text/css">
+body {
+	background-color: "white";
+	background-attachment: fixed;
+}
+
+div.bord
+{
+	top: 200px;
+	width: 400px;
+	padding: 10px;
+	border: 10px groove #069;
+
+	border-radius: 15px;
+	height: auto;
+	background-color: rgba(184,194,200,0.7);
+	
+}
+div.pos
+{
+	position: relative;
+	left: 50px;
+}
+</style>
 <title>Login</title>
 </head>
 <body>
-    <form action="loginServlet" method="post">  
-        <fieldset style="width: 300px">  
-            <legend>Login</legend>  
-            <table>  
-                <tr>  
-                    <td>Username</td>  
-                    <td><input type="text" name="username" required="required" /></td>  
-                </tr>  
-                <tr>  
-                    <td>Password</td>  
-                    <td><input type="password" name="password" required="required" /></td>  
-                </tr>  
-                <tr>  
-                    <td><input type="submit" value="Login" /></td>  
-                    <td><input type="reset" value="Reset"/></td>
-                </tr>  
-            </table>  
-        </fieldset>  
-            <br>
-			If you are a new user, please <a href="register.jsp">register</a>.
-    </form>  
+<table align = "left">
+<div class="container">
+  <h2>Login</h2>
+  <form method = "post" action = "loginServlet" role="form">
+    <div class="form-group" action = "login">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" id="username" name = "username" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" name = "password" placeholder="Enter password">
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-default" value = "Login">Submit</button>
+    If you are a new user, please <a href="register.jsp">register</a>.
+  </form>
+</div>
+</table>
 </body>
 </html>

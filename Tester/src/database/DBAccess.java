@@ -17,7 +17,7 @@ public class DBAccess {
 
 	//database credentials
 	static final String USER = "root";
-	static final String PASS = "jenydoby";
+	static final String PASS = "";
 
 	private DBAccess() {
 		try {

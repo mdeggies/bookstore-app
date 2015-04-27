@@ -38,16 +38,18 @@ public class LoginServlet extends HttpServlet {
         //get user input
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-          
+        
         try {
         	//connect to db
         	DBAccess connect = DBAccess.getInstance();
         	conn=connect.getConnection();
         	
-            HttpSession session = request.getSession(false);  
-            if(session!=null)  
-            session.setAttribute("username", username);  
-
+            HttpSession session = request.getSession(false); 
+            if(session!=null){  
+	            session.setAttribute("username", username);  
+	            session.setAttribute("password", password);
+	            session.setAttribute("cart", " ");
+            }
         	if (username != null && password!=null) {
         		//see if user exists in DB 
         		String query = "SELECT * FROM " + db_table + " WHERE username = ? AND PASSWORD = ?";
