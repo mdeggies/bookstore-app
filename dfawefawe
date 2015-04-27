@@ -1,0 +1,41 @@
+commit 6c337086828416ed77b6cdc6a3f79f654d83947c
+Author: Alex Wenger <wengera@indiana.edu>
+Date:   Sat Apr 25 16:56:34 2015 -0400
+
+    fixed db connection template for bookstore
+
+commit b561f60238b26f0d1902eb2a34a576c49288b017
+Author: cdamico <cdamico@umail.iu.edu>
+Date:   Thu Apr 23 23:55:31 2015 -0400
+
+    Delete test.txt
+
+commit d48214a92863a5d58920938cd93afbd08c579347
+Author: Cody Roberto Damico <cdamico@silo.soic.indiana.edu>
+Date:   Thu Apr 23 23:50:13 2015 -0400
+
+    Sample tables/book info/book pictures
+
+commit 7c4b43e3c413b204fafd3ee13cfac910ee0c2b20
+Author: elle <mdegges@umail.iu.edu>
+Date:   Thu Apr 23 02:42:25 2015 -0400
+
+    first attempt at user authentication
+
+commit b44ce6c676d505b13852bdd23e505788255f655c
+Author: elle <mdegges@umail.iu.edu>
+Date:   Wed Apr 22 13:52:50 2015 -0400
+
+    added singleton db connection code
+
+commit f7ba60f0c3a1edce5fb222268d12a303e0939497
+Author: Cody Roberto Damico <cdamico@silo.soic.indiana.edu>
+Date:   Tue Apr 21 19:46:00 2015 -0400
+
+    test test
+
+commit d9c60865e7e57b4748ad54c27274596754d0b1f1
+Author: rwdelima <rwdelima@indiana.edu>
+Date:   Tue Apr 21 19:04:25 2015 -0400
+
+    Initial commit

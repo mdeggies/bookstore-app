@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class register extends HttpServlet {
 	
+	private static final long serialVersionUID = 1L;
+
 	final static String db_table = "Information";
 
 	static Connection conn;
@@ -24,10 +26,10 @@ public class register extends HttpServlet {
 	static BufferedReader reader = null;
 
 	static String username;
-	static String password; 
-	static String first_name; 
-	static String last_name; 	
-	static String address; 
+	static String password;
+	static String first_name;
+	static String last_name;
+	static String address;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -39,7 +41,7 @@ public class register extends HttpServlet {
 		String first_name = request.getParameter("first_name");
 		String last_name = request.getParameter("last_name");
 		String address = request.getParameter("address");
-
+		
 		if (username.equals("") || password.equals("") || 
 				first_name.equals("") || last_name.equals("") ||
 				address.equals("")) {
@@ -89,11 +91,23 @@ public class register extends HttpServlet {
 					RequestDispatcher rd = request.getRequestDispatcher("/login.html");
 					rd.include(request, response);
 				}
+				else{
+					out.println("You have failed to register");
+				}
 			}
 		}
 		catch(SQLException se) {
 			//handle mySQL errors 
 			se.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		finally {
 			out.close();
