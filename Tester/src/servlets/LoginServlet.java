@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet {
             if(session!=null){  
 	            session.setAttribute("username", username);  
 	            session.setAttribute("password", password);
-	            session.setAttribute("cart", " ");
+	            session.setAttribute("cart", "");
             }
         	if (username != null && password!=null) {
         		//see if user exists in DB 

@@ -13,23 +13,6 @@ body {
 	background-color: "white";
 	background-attachment: fixed;
 }
-div.bord
-{
-	top: 200px;
-	width: 400px;
-	padding: 10px;
-	border: 10px groove #069;
-
-	border-radius: 15px;
-	height: auto;
-	background-color: rgba(184,194,200,0.7);
-	
-}
-div.pos
-{
-	position: relative;
-	left: 110px;
-}
 </style>
 <title>Welcome <%=session.getAttribute("username")%></title>
 </head>
@@ -60,6 +43,7 @@ div.pos
 
 
 <div class="container" style="width:200;height:auto">
+<form role="form" action = "CartServlet" method = "post">
     <div class="jumbotron">        
   <div class="row">
     <div class="col-md-4">
@@ -91,13 +75,15 @@ div.pos
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          
         </div>
       </div>
       
     </div>
   </div>
-  
-  
+  <label class="checkbox-inline">
+      <input type="checkbox" value="Matterhorn/" name = "book"> Add to Cart
+    </label>
   
   
     </div>
@@ -140,8 +126,9 @@ div.pos
 	      
 	      
 	      
-	      
-	      
+	 <label class="checkbox-inline">
+      <input type="checkbox" value="50 Shades of Grey/" name = "book"> Add to Cart
+    </label>
 	      
 	      
     </div>
@@ -182,7 +169,9 @@ div.pos
 	<br />
 	      
 	      
-	      
+	      <label class="checkbox-inline">
+      <input type="checkbox" value="The Walking Dead/" name = "book"> Add to Cart
+    </label>
 	      
     </div>
     </div>
@@ -220,7 +209,9 @@ div.pos
   </div>    
 	      
 	      
-	      
+	     <label class="checkbox-inline">
+      <input type="checkbox" value="Dragon Tattoo/" name = "book"> Add to Cart
+    </label>
 	      
 	      
 	      
@@ -228,6 +219,10 @@ div.pos
     </div>
     
 </div>
+	<div class="container">
+					  			<input type="submit" class="btn btn-default btn-md" value = "Buy"></input>
+					</div>
+</form>
 </div>
 
 <h4>  Hello,  !</h4>
@@ -240,5 +235,7 @@ div.pos
 					</div>
 		</fieldset>
 	</form>
+	
+
 </body>
 </html>

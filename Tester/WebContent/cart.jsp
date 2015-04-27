@@ -100,7 +100,7 @@ div.pos
    	<script type="text/javascript">
 		var book = "Matterhorn";
 		var cart = "<%=session.getAttribute("cart")%>";
-		var array = cart.split(" ");
+		var array = cart.split("/");
 		//array.splice(0, 2);
 		
 		document.getElementById("demo").innerHTML = array;

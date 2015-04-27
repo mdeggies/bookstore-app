@@ -50,7 +50,7 @@ public class CartServlet extends HttpServlet {
         	String cart = session.getAttribute("cart").toString();
         	//get user input
             String book = request.getParameter("book");
-            if (cart.equals("")){
+            if (cart.equals("") || book.equals("")){
             	session.setAttribute("cart", book);
             }
             else{
