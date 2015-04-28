@@ -1,5 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page import="java.io.*,java.util.*" language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<!-- If someone is trying to get to cart.jsp without being logged in,
+redirect them to login page -->
+<%  
+     if (session.getAttribute("username") == null) {  
+    	    String redirectURL = "http://localhost:8080/Tester/login.jsp";
+    	    response.sendRedirect(redirectURL);
+     }
+  %>
+  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -32,7 +42,7 @@ div.pos
 	left: 110px;
 }
 </style>
-<title>Insert title here</title>
+<title>Cart</title>
 </head>
 <body>
 	<nav class="navbar navbar-default">
@@ -75,23 +85,13 @@ div.pos
 			        <td><%=session.getAttribute("username")%></td>
 			        <td><%=session.getAttribute("password")%></td>
 			      </tr>
-			      <tr>
-			        <td>Mary</td>
-			        <td>Moe</td>
-			        <td>mary@example.com</td>
-			      </tr>
-			      <tr>
-			        <td>July</td>
-			        <td>Dooley</td>
-			        <td>july@example.com</td>
-			      </tr>
 			    </tbody>
 			  </table>
        	</fieldset>
    	</form>
    	<form action="CartServlet" method="post"> 
     	<fieldset style="width: 300px"> 
-	    		<input type="radio" name="book" value="john">Female</input>
+	    		<input type="radio" name="checkout" value="checkout">Checkout
 	            	<div class="container">
 					  			<input type="submit" class="btn btn-link btn-md" value = "Buy"></input>
 					</div>
