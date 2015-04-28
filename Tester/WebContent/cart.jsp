@@ -43,11 +43,11 @@ div.pos
     <div>
       <ul class="nav navbar-nav">
         <li class="active"><a href="welcome.jsp">Home</a></li>
-        <li><a href="/welcome.jsp">Mystery</a></li>
-        <li><a href="#">Fiction</a></li>
-        <li><a href="#">Non-Fiction</a></li>
-        <li><a href="#">Horror</a></li>
-        <li><a href="#">Adult</a></li>
+        <li><a href="mystery.jsp">Mystery</a></li>
+        <li><a href="fiction.jsp">Fiction</a></li>
+        <li><a href="nonfiction.jsp">Non-Fiction</a></li>
+        <li><a href="horror.jsp">Horror</a></li>
+        <li><a href="adult.jsp">Adult</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> <%=session.getAttribute("username")%></a></li>

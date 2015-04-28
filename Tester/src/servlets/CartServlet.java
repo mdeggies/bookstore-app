@@ -33,6 +33,7 @@ public class CartServlet extends HttpServlet {
 	static String username;
 	static String password; 
 	static String cart;
+	static ArrayList<String> l = new ArrayList<String>();
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");    
@@ -52,6 +53,7 @@ public class CartServlet extends HttpServlet {
             String book = request.getParameter("book");
             if (cart.equals("") || book.equals("")){
             	session.setAttribute("cart", book);
+            	l.add(book);
             }
             else{
             	if (cart.toLowerCase().contains(book.toLowerCase())){
@@ -59,22 +61,11 @@ public class CartServlet extends HttpServlet {
             	}
             	else{
             		session.setAttribute("cart", cart + " " + book);
+            		l.add(book);
             	}
             	
             }
-            	/*l = (ArrayList<String>) session.getAttribute("cart");
-            	for(String x: l){
-            		if (x.equals(book))
-            			contains = true;
-            	}
-            	if (contains == false)
-            		l.add(book);
-            }
-            else{
-            	l = new ArrayList<String>();
-            	l.add(book);
-            }
-            */
+            	
 
 			RequestDispatcher rd = request.getRequestDispatcher("cart.jsp");
 			rd.forward(request, response);
