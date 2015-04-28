@@ -39,7 +39,7 @@ public class DBAccess {
 		return conn; 
 	}
 	
-	public static DBAccess getInstance() throws SQLException {
+	public static DBAccess getInstance(){
 		
 		if (s == null) {
 			synchronized(DBAccess.class) {

@@ -27,7 +27,6 @@ public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	final static String db_table = "Information";
-	final static String db_table2 = "Cart";
 
 	static Connection conn;
 	static Statement stmt = null;
@@ -95,13 +94,7 @@ public class RegisterServlet extends HttpServlet {
 						pstmt.setString(6, store_credit);
 						pstmt.setString(7, credit_card_info);
 						pstmt.executeUpdate(); 
-						PreparedStatement pstmt2;
-						String query2 = "INSERT INTO " + db_table2 + " VALUES (?, ?, ?)";
-						pstmt2 = (PreparedStatement) conn.prepareStatement(query2);
-						pstmt2.setString(1, username);
-						pstmt2.setString(2, password);
-						pstmt2.setString(3, null);
-						pstmt2.executeUpdate();
+						
 						
 
 						//print successful registration msg 

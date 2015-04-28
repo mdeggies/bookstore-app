@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import database.DBAccess;
+import database.GetQuery;
 
 /**
  * Servlet implementation class LoginServlet
@@ -43,7 +44,10 @@ public class LoginServlet extends HttpServlet {
         	//connect to db
         	DBAccess connect = DBAccess.getInstance();
         	conn=connect.getConnection();
-        	
+    		//for testing////////*++
+    		double x = GetQuery.getPrice("into the wild");
+    		//out.print("x");
+    		//end testing/////////////
             HttpSession session = request.getSession(false); 
             if(session!=null){  
 	            session.setAttribute("username", username);  
