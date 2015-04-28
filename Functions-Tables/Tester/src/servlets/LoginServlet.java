@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import database.Books;
 import database.DBAccess;
 import database.GetQuery;
 
@@ -44,10 +46,22 @@ public class LoginServlet extends HttpServlet {
         	//connect to db
         	DBAccess connect = DBAccess.getInstance();
         	conn=connect.getConnection();
-    		//for testing////////*++
-    		double x = GetQuery.getPrice("into the wild");
-    		//out.print("x");
-    		//end testing/////////////
+        	
+        	
+    		//for testing////////////
+    		Double x = GetQuery.getPrice("into the wild");
+    		System.out.println(x);
+    		ArrayList<Books> y = new ArrayList<Books>();
+    		y = GetQuery.getAuthor("robert kirkman");
+    		if (y.size() > 0){
+    		System.out.println(y.get(0).title());
+    		}
+    		y = new ArrayList<Books>();
+    		y = GetQuery.getCategory("Mystery");
+    		System.out.println(y.get(0).title());
+    		//end testing////////////////////
+    		
+    		
             HttpSession session = request.getSession(false); 
             if(session!=null){  
 	            session.setAttribute("username", username);  
