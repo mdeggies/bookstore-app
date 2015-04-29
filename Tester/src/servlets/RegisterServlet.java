@@ -91,8 +91,8 @@ public class RegisterServlet extends HttpServlet {
 						pstmt.setString(3, first_name);
 						pstmt.setString(4, last_name);
 						pstmt.setString(5, address);
-						pstmt.setString(6, store_credit);
-						pstmt.setString(7, credit_card_info);
+						pstmt.setString(6, credit_card_info);
+						pstmt.setString(7, store_credit);
 						pstmt.executeUpdate(); 
 						
 						
