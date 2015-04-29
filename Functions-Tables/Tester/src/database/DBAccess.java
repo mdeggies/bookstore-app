@@ -13,7 +13,7 @@ public class DBAccess {
 	public static Statement stmt = null;
 
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-	static final String DB_URL = "jdbc:mysql://localhost/Users";
+	static final String DB_URL = "jdbc:mysql://localhost/users";
 
 	//database credentials
 	static final String USER = "root";
