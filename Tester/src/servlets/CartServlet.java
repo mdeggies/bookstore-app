@@ -81,7 +81,7 @@ public class CartServlet extends HttpServlet {
             		session.setAttribute("price", price2);
             	}
             	else{
-            		session.setAttribute("cart", cart + " " + book);
+            		session.setAttribute("cart", cart + book);
             		session.setAttribute("price", price2 + price.toString() + "/");
             		l.add(book);
             		
