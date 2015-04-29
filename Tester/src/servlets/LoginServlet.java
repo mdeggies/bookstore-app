@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import database.Books;
 import database.DBAccess;
 import database.GetQuery;
 
@@ -23,7 +25,7 @@ import database.GetQuery;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	final static String db_table = "information";
+	final static String db_table = "Information";
 	
 	static Connection conn;
 	static Statement stmt = null;
@@ -45,11 +47,29 @@ public class LoginServlet extends HttpServlet {
         	DBAccess connect = DBAccess.getInstance();
         	conn=connect.getConnection();
         	
+        	
+    		//for testing////////////
+    		//Double x = GetQuery.getPrice("into the wild");
+    		//System.out.println(x);
+    		//ArrayList<Books> y = new ArrayList<Books>();
+    		//y = GetQuery.getAuthor("robert kirkman");
+    		//if (y.size() > 0){
+    		//System.out.println(y.get(0).title());
+    		//}
+    		//y = new ArrayList<Books>();
+    		//y = GetQuery.getCategory("Mystery");
+    		//System.out.println(y.get(0).title());
+    		//y = new ArrayList<Books>();
+    		//System.out.println(GetQuery.allBooks().size());
+    		//end testing////////////////////
+    		
+    		
             HttpSession session = request.getSession(false); 
             if(session!=null){  
 	            session.setAttribute("username", username);  
 	            session.setAttribute("password", password);
 	            session.setAttribute("cart", "");
+	            session.setAttribute("price", "");
             }
         	if (username != null && password!=null) {
         		//see if user exists in DB 
@@ -62,6 +82,18 @@ public class LoginServlet extends HttpServlet {
         		//if user exists
         		if (rs.next()) {
         			//send user to welcome page 
+        			
+        			String user = rs.getString("username");
+     				String pass = rs.getString("password");
+     				String fnam = rs.getString("first_name");
+     				String lnam = rs.getString("last_name");
+     				String addr = rs.getString("address");
+     				String cred = rs.getString("credit_card_info");
+     				String stcr = rs.getString("store_credit");
+     				String acc = user + "/" + pass + "/" + fnam + "/" + lnam + "/" + addr + "/" + cred + "/" + stcr;
+     				
+     				session.setAttribute("account", acc); 
+        			
         			RequestDispatcher rd = 
         					request.getRequestDispatcher("welcome.jsp");
         			rd.forward(request, response);

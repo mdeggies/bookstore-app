@@ -12,6 +12,9 @@ public class GetQuery{
 	private static ArrayList<Books> answer;
 	private static ArrayList<String> tempBook;
 	//The format for each string is as follows (<book name>)(<book name>)
+	
+	final static String db_table2 = "Detail";
+	
 	public static ArrayList<Books> getCategory(String cat){
 		cat = cat.toUpperCase();
 		formattedRequest = "";
@@ -37,8 +40,6 @@ public class GetQuery{
             		answer.add(tempList.get(j));
             	}
             }
-            conn.close();
-            return answer;
 		}
 		catch(SQLException e){
 			e.printStackTrace();
@@ -46,15 +47,40 @@ public class GetQuery{
 		return answer;
 	}
 		
+	public static ArrayList<Books> allBooks(){
+		ArrayList<Books> a = new ArrayList<Books>();
+		String[] c = {"MYSTERY", "FICTION", "NONFICTION", "HORROR", "ADULT"};
+		try{
+			db = DBAccess.getInstance();
+			conn = db.getConnection();
+			String temp;
+			for (int j = 0; j < c.length; j++){
+				stmt = conn.prepareStatement("SELECT " + c[j] + " FROM CATEGORY");
+				ResultSet rs = stmt.executeQuery();
+            
+				if (rs.next()){
+					temp = rs.getString(1);
+					for (int i = 0; i < getBook(temp).size(); i++){
+						a.add(getBook(temp).get(i));
+					}
+				}
+			}
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+		}
+		return a;
+	}
 	
 	public static ArrayList<Books> getAuthor(String author){
 		//returns specific book(s)
+		author = author.toLowerCase();
 		ArrayList<Books> x = new ArrayList<Books>();
 		try{
 			db = DBAccess.getInstance();
 			conn = db.getConnection();
 			//db.getConnection();
-			stmt = conn.prepareStatement("SELECT BOOKNAME FROM DETAIL WHERE AUTHOR = '" + author + "'");
+			stmt = conn.prepareStatement("SELECT BOOKNAME FROM detail WHERE AUTHOR = '" + author + "'");
 			ResultSet rs = stmt.executeQuery();
 			ArrayList<String> temp = new ArrayList<String>();
 			ArrayList<Books> temp2 = new ArrayList<Books>();
@@ -68,8 +94,6 @@ public class GetQuery{
 					x.add(temp2.get(j));
 				}
 			}
-			conn.close();
-			return x;
 		}
 		catch (Exception e){
 			System.err.println("Got an exception!");
@@ -86,16 +110,15 @@ public class GetQuery{
 			Books temp;
 			//ArrayList<Books> a = new ArrayList<Books>();
 			//conn.getConnection();
-			stmt = conn.prepareStatement("SELECT * FROM DETAIL WHERE BOOKNAME = '" + book + "'");
+			stmt = conn.prepareStatement("SELECT * FROM detail WHERE BOOKNAME = '" + book + "'");
             ResultSet rs = stmt.executeQuery();
             formattedRequest = "";
             while (rs.next()){
-            	temp = new Books(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+            	temp = new Books(rs.getString(1), rs.getString(2), rs.getString(3));
             	//temp = "(" + rs.getString(1) + "," + rs.getString(2) + "," + rs.getString(3) + ")";
                 //formattedRequest = formattedRequest + temp;
             	a.add(temp);
             }
-            return a;
 		}
 		catch (Exception e){
 			System.err.println("Got an exception!");
@@ -104,26 +127,24 @@ public class GetQuery{
 		return a;
 	}
 		
-		public static Double getPrice(String book){
-			Double val = null;
+		public static double getPrice(String book){
+			double val = 0;
+			System.out.println(book);
 			try{
 				//create connection
-				db = DBAccess.getInstance();
-				conn = db.getConnection();
-				//String db_table = "detail";
-				String temp;
-				book = book.toLowerCase();
-				//String query = "SELECT PRICE FROM " + db_table + " WHERE BOOKNAME = ?";
-        		//PreparedStatement pstmt = (PreparedStatement) conn.prepareStatement(query); 
-        		//pstmt.setString(1, book);
-        		//ResultSet rs = pstmt.executeQuery(); 
-				stmt = conn.prepareStatement("SELECT PRICE FROM detail WHERE BOOKNAME = '" + book + "'");
-	            ResultSet rs = stmt.executeQuery();
-	            temp = rs.getString(1);
-	            val = Double.parseDouble(temp);
-	            conn.close();
-	            return val;
-	            }
+				
+				val = 1;
+				DBAccess connect = DBAccess.getInstance();
+		    	conn=connect.getConnection();
+		    	String query = "SELECT * FROM " + db_table2 + " WHERE BOOKNAME = ?";
+	    		PreparedStatement pstmt = (PreparedStatement) conn.prepareStatement(query); 
+	    		pstmt.setString(1, book);
+	    		ResultSet rs = pstmt.executeQuery(); 
+	    		if (rs.next()){
+	    			return rs.getDouble("PRICE");
+	    		}
+		
+	        }
 			catch (Exception e){
 				System.err.println("Got an exception!");
 				System.err.println(e.getMessage());

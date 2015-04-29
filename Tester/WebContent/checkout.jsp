@@ -91,10 +91,14 @@ div.font{
 						      
 						    </thead>
 						    <tr>
+						    <td> Fuck </td>
+							     <td><p id = "total"> </p></td>
+							     </tr>
 						  </table>
 						  <table>
 							  <tr>
-							     <td><p id = "total2"> </p></td>
+							  	<td> Fuck </td>
+							     <td><p id = "total"> </p></td>
 							  </tr>
 						  </table>
 				
@@ -120,7 +124,7 @@ div.font{
 							cell2.innerHTML = arrayP[x];
 							total = total + parseFloat(arrayP[x]);
 						}
-						document.getElementById("total2").innerHTML = total;
+						document.getElementById("total").innerHTML = total;
 				
 						
 					</script>
