@@ -27,10 +27,6 @@ public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	final static String db_table = "Information";
-<<<<<<< HEAD
-	
-=======
->>>>>>> 02ebf42104879b49a1ee86078431b44836547d36
 
 	static Connection conn;
 	static Statement stmt = null;
@@ -98,11 +94,6 @@ public class RegisterServlet extends HttpServlet {
 						pstmt.setString(6, store_credit);
 						pstmt.setString(7, credit_card_info);
 						pstmt.executeUpdate(); 
-<<<<<<< HEAD
-						PreparedStatement pstmt2;
-=======
->>>>>>> 02ebf42104879b49a1ee86078431b44836547d36
-						
 						
 
 						//print successful registration msg 
