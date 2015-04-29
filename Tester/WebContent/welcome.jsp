@@ -1,5 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page import="java.io.*,java.util.*" language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<!-- If someone is trying to get to welcome.jsp without being logged in,
+redirect them to login page -->
+<%  
+     if (session.getAttribute("username") == null) {  
+    	    String redirectURL = "http://localhost:8080/Tester/login.jsp";
+    	    response.sendRedirect(redirectURL);
+     }
+  %>
+  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -25,11 +35,10 @@ body {
     <div>
       <ul class="nav navbar-nav">
         <li class="active"><a href="welcome.jsp">Home</a></li>
-        <li><a href="#">Mystery</a></li>
-        <li><a href="#">Fiction</a></li>
-        <li><a href="#">Non-Fiction</a></li>
-        <li><a href="#">Horror</a></li>
-        <li><a href="#">Adult</a></li>
+        <li><a href="mystery.jsp">Mystery</a></li>
+        <li><a href="fiction.jsp">Fiction</a></li>
+        <li><a href="nonfiction.jsp">Non-Fiction</a></li>
+        <li><a href="horror.jsp">Horror</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> <%=session.getAttribute("username")%></a></li>
@@ -41,18 +50,14 @@ body {
 
 
 
-
 <div class="container" style="width:200;height:auto">
 <form role="form" action = "CartServlet" method = "post">
     <div class="jumbotron">        
   <div class="row">
     <div class="col-md-4">
-      <a href="assets/matte.jpg" class="thumbnail"style="width:950px;height:auto" >    
-        <img src="assets/matte.jpg" alt="matte" >
+      <a href="assets/Fiction/matte.jpg" class="thumbnail"style="width:950px;height:auto" >    
+        <img src="assets/Fiction/matte.jpg" alt="matte" >
       </a>
-      
-      
-      
       
       
       
@@ -70,8 +75,8 @@ body {
           <h4 class="modal-title">Matterhorn</h4>
         </div>
         <div class="modal-body">
-          <p align = "center"><img src="assets/matte.jpg" alt="matte" width = "500" height = "700"></p>
-          <p align = "center"><img src="assets/matteR.PNG" alt="matteR" width = "500" height = "120"></p>
+          <p align = "center"><img src="assets/Fiction/matte.jpg" alt="matte" width = "500" height = "700"></p>
+          <p align = "center"><img src="assets/Fiction/matteR.PNG" alt="matteR" width = "500" height = "120"></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -81,22 +86,22 @@ body {
       
     </div>
   </div>
+  
   <label class="checkbox-inline">
       <input type="checkbox" value="Matterhorn/" name = "book"> Add to Cart
     </label>
-  
-  
+    
     </div>
     </div>
     <br />
-   <div class="row">
+
+       <div class="row">
     <div class="col-md-4">
-	    <a href="assets/grey.jpg" class="thumbnail" style="width:950px;height:auto">    
-	        <img src="assets/grey.jpg" alt="grey">
+	    <a href="assets/Fiction/bird.jpg" class="thumbnail" style="width:950px;height:auto">    
+	        <img src="assets/Fiction/bird.jpg" alt="bird">
 	      </a>
-	      
-	      
-	         
+
+
   <!-- Trigger the modal with a button -->
   <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Review</button>
 
@@ -108,11 +113,11 @@ body {
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Fifty Shades of Grey</h4>
+          <h4 class="modal-title">To Kill a Mockingbird</h4>
         </div>
         <div class="modal-body">
-          <p align = "center"><img src="assets/grey.jpg" alt="grey" width = "500" height = "700"></p>
-          <p align = "center"><img src="assets/greyR.PNG" alt="greyR" width = "500" height = "120"></p>
+          <p align = "center"><img src="assets/Fiction/bird.jpg" alt="bird" width = "500" height = "700"></p>
+          <p align = "center"><img src="assets/Fiction/birdR.png" alt="birdR" width = "500" height = "120"></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -121,84 +126,84 @@ body {
       
     </div>
   </div>   
-	     
-	      
-	      
-	      
-	      
-	 <label class="checkbox-inline">
-      <input type="checkbox" value="50 Shades of Grey/" name = "book"> Add to Cart
-    </label>
-	      
-	      
-    </div>
-    </div>
-     <br />
-    <div class="row">
-    <div class="col-md-4">
-	    <a href="assets/dead.jpg" class="thumbnail" style="width:950px;height:auto">    
-	        <img src="assets/dead.jpg" alt="grey">
-	      </a>
-	      
-	      
-	      
-	       <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3">Review</button>
 
-  <!-- Modal -->
-  <div class="modal fade" id="myModal3" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Fifty Shades of Grey</h4>
-        </div>
-        <div class="modal-body">
-          <p align = "center"><img src="assets/dead.jpg" alt="grey" width = "500" height = "700"></p>
-          <p align = "center"><img src="assets/deadR.PNG" alt="greyR" width = "500" height = "120"></p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>    
-	<br />
-	      
-	      
-	      <label class="checkbox-inline">
-      <input type="checkbox" value="The Walking Dead/" name = "book"> Add to Cart
+
+
+
+
+	 <label class="checkbox-inline">
+      <input type="checkbox" value="To Kill a Mockingbird/" name = "book"> Add to Cart
     </label>
-	      
+
     </div>
     </div>
     <br />
+    
     <div class="row">
     <div class="col-md-4">
-	    <a href="assets/tattoo.jpg" class="thumbnail" style="width:950px;height:auto">    
-	        <img src="assets/tattoo.jpg" alt="grey">
-	      </a>
-	      
-	      
-	      	       <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal4">Review</button>
+      <a href="assets/Horror/exorcist.jpg" class="thumbnail"style="width:950px;height:auto" >    
+        <img src="assets/Horror/exorcist.jpg" alt="exorcist" >
+      </a>
+      
+      
+      
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Review</button>
 
   <!-- Modal -->
-  <div class="modal fade" id="myModal4" role="dialog">
+  <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Fifty Shades of Grey</h4>
+          <h4 class="modal-title">The Exorcist</h4>
         </div>
         <div class="modal-body">
-          <p align = "center"><img src="assets/tattoo.jpg" alt="grey" width = "500" height = "700"></p>
-          <p align = "center"><img src="assets/tattooR.PNG" alt="greyR" width = "500" height = "120"></p>
+          <p align = "center"><img src="assets/Horror/exorcist.jpg" alt="exorcist" width = "500" height = "700"></p>
+          <p align = "center"><img src="assets/Horror/exorcistR.png" alt="exorcistR" width = "500" height = "120"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <label class="checkbox-inline">
+      <input type="checkbox" value="The Exorcist/" name = "book"> Add to Cart
+    </label>
+    
+    </div>
+    </div>
+    <br />
+
+       <div class="row">
+    <div class="col-md-4">
+	    <a href="assets/Horror/shining.jpg" class="thumbnail" style="width:950px;height:auto">    
+	        <img src="assets/Horror/shining.jpg" alt="shining">
+	      </a>
+
+
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Review</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">The Shining</h4>
+        </div>
+        <div class="modal-body">
+          <p align = "center"><img src="assets/Horror/shining.jpg" alt="shining" width = "500" height = "700"></p>
+          <p align = "center"><img src="assets/Horror/shiningR.png" alt="shiningR" width = "500" height = "120"></p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -206,36 +211,202 @@ body {
       </div>
       
     </div>
-  </div>    
-	      
-	      
-	     <label class="checkbox-inline">
-      <input type="checkbox" value="Dragon Tattoo/" name = "book"> Add to Cart
+  </div>   
+
+
+
+
+
+	 <label class="checkbox-inline">
+      <input type="checkbox" value="The Shining/" name = "book"> Add to Cart
     </label>
-	      
-	      
-	      
+
+
     </div>
     </div>
+    <br />
     
-</div>
-	<div class="container">
+     <div class="row">
+    <div class="col-md-4">
+      <a href="assets/Mystery/ruleoffour.jpeg" class="thumbnail"style="width:950px;height:auto" >    
+        <img src="assets/Mystery/ruleoffour.jpeg" alt="ruleoffour" >
+      </a>
+      
+      
+      
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Review</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">The Rule of Four</h4>
+        </div>
+        <div class="modal-body">
+          <p align = "center"><img src="assets/Mystery/ruleoffour.jpeg" alt="ruleoffour" width = "500" height = "700"></p>
+          <p align = "center"><img src="assets/Mystery/ruleoffourR.png" alt="ruleoffourR" width = "500" height = "120"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <label class="checkbox-inline">
+      <input type="checkbox" value="The Rule of Four/" name = "book"> Add to Cart
+    </label>
+    
+    </div>
+    </div>
+    <br />
+
+       <div class="row">
+    <div class="col-md-4">
+	    <a href="assets/Mystery/tattoo.jpg" class="thumbnail" style="width:950px;height:auto">    
+	        <img src="assets/Mystery/tattoo.jpg" alt="tattoo">
+	      </a>
+
+
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Review</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">The Girl with the Dragon Tattoo</h4>
+        </div>
+        <div class="modal-body">
+          <p align = "center"><img src="assets/Mystery/tattoo.jpg" alt="tattoo" width = "500" height = "700"></p>
+          <p align = "center"><img src="assets/Mystery/tattooR.PNG" alt="tattooR" width = "500" height = "120"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>   
+
+
+
+
+
+	 <label class="checkbox-inline">
+      <input type="checkbox" value="The Girl with the Dragon Tattoo/" name = "book"> Add to Cart
+    </label>
+
+
+    </div>
+    </div>
+    <br />
+    
+      <div class="row">
+    <div class="col-md-4">
+      <a href="assets/Nonfiction/devil.jpg" class="thumbnail"style="width:950px;height:auto" >    
+        <img src="assets/Nonfiction/devil.jpg" alt="devil" >
+      </a>
+      
+      
+      
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Review</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Devil in the White City</h4>
+        </div>
+        <div class="modal-body">
+          <p align = "center"><img src="assets/Nonfiction/devil.jpg" alt="devil" width = "500" height = "700"></p>
+          <p align = "center"><img src="assets/Nonfiction/devilR.png" alt="devilR" width = "500" height = "120"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <label class="checkbox-inline">
+      <input type="checkbox" value="Devil in the White City/" name = "book"> Add to Cart
+    </label>
+    
+    </div>
+    </div>
+    <br />
+
+       <div class="row">
+    <div class="col-md-4">
+	    <a href="assets/Nonfiction/quiet.jpg" class="thumbnail" style="width:950px;height:auto">    
+	        <img src="assets/Nonfiction/quiet.jpg" alt="quiet">
+	      </a>
+
+
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Review</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Quiet: The Power of the Introvert</h4>
+        </div>
+        <div class="modal-body">
+          <p align = "center"><img src="assets/Nonfiction/quiet.jpg" alt="quiet" width = "500" height = "700"></p>
+          <p align = "center"><img src="assets/Nonfiction/quietR.png" alt="quietR" width = "500" height = "120"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>   
+
+
+
+
+
+	 <label class="checkbox-inline">
+      <input type="checkbox" value="Quiet/" name = "book"> Add to Cart
+    </label>
+
+
+    </div>
+    </div>
+     <div class="container">
 					  			<input type="submit" class="btn btn-default btn-md" value = "Buy"></input>
 					</div>
+</div>
+
 </form>
 </div>
 
-<h4>  Hello,  !</h4>
-    <form action="CartServlet" method="post"> 
-    	<fieldset style="width: 300px"> 
-	    	<legend>Register</legend> 
-	    		<input type="radio" name="book" value="v">Female</input>
-	            	<div class="container">
-					  			<input type="submit" class="btn btn-default btn-md" value = "Buy"></input>
-					</div>
-		</fieldset>
-	</form>
-	
 
 </body>
 </html>
+    

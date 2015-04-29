@@ -95,7 +95,6 @@ public class RegisterServlet extends HttpServlet {
 						pstmt.setString(7, credit_card_info);
 						pstmt.executeUpdate(); 
 						
-						
 
 						//print successful registration msg 
 						out.print("<p style=\"color:red\">Registration successful! Please login</p>");    
