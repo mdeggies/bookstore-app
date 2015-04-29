@@ -57,7 +57,6 @@ div.pos
         <li><a href="fiction.jsp">Fiction</a></li>
         <li><a href="nonfiction.jsp">Non-Fiction</a></li>
         <li><a href="horror.jsp">Horror</a></li>
-        <li><a href="adult.jsp">Adult</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> <%=session.getAttribute("username")%></a></li>
