@@ -16,8 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import database.Books;
+import database.Context;
 import database.DBAccess;
 import database.GetQuery;
+import database.IncludeTax;
+import database.ParsedTotal;
 
 /**
  * Servlet implementation class CartServlet
@@ -53,6 +56,15 @@ public class CheckoutServlet extends HttpServlet {
         	password = session.getAttribute("password").toString();
         	String cart = session.getAttribute("cart").toString();
         	getTotal(cart);
+        	double total1 = getTotal(cart);
+        	System.out.println(total1);
+        	Context context = new Context(new ParsedTotal());
+        	double tax = context.executeStrategy(total1, .09);//tax is .15
+        	context = new Context(new IncludeTax());
+        	double totalPrice2 = context.executeStrategy(total1, tax);
+        	System.out.print(totalPrice2);
+        	request.setAttribute("totalPrice2", totalPrice2);
+        	
         	if (option.equals("credit")){
         		
         		String query = "SELECT * FROM " + db_table + " WHERE username = ? AND PASSWORD = ?";
@@ -63,7 +75,7 @@ public class CheckoutServlet extends HttpServlet {
         		
         		if (rs.next()){
         			double credit = Double.parseDouble(rs.getString("store_credit"));
-        			if (credit > getTotal(cart)){
+        			if (credit > totalPrice2){
         				RequestDispatcher rd = request.getRequestDispatcher("congrats.jsp");
         				rd.forward(request, response);
         				/*

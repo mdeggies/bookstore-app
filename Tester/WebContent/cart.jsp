@@ -61,8 +61,9 @@ div.font{
       
     </div>
     <table>
+    <p><b> Total with tax <%= session.getAttribute("totalPrice")%> </b>.</p>
 							  <tr>
-							     <td><p id = "total"> </p></td>
+							     <td><p id = "totalPrice" > </p></td>
 							  </tr>
 						  </table>
 						  

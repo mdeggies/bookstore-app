@@ -16,8 +16,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import database.Books;
+import database.Context;
 import database.DBAccess;
 import database.GetQuery;
+import database.IncludeTax;
+import database.ParsedTotal;
 
 /**
  * Servlet implementation class CartServlet
@@ -56,6 +59,8 @@ public class CartServlet extends HttpServlet {
         	String cart = session.getAttribute("cart").toString();
         	String price2 = session.getAttribute("price").toString();
         	//get user input
+        	
+        	
             String book = request.getParameter("book");
             String book2 = book.toLowerCase();
             book2 = book2.substring(0, book.length() - 1);
@@ -66,8 +71,8 @@ public class CartServlet extends HttpServlet {
             session.setAttribute("prices3", prices);
             Double total = Books.addBooks(prices);
             session.setAttribute("total", total);
-            System.out.println(price);
-            System.out.println(price2);
+            //System.out.println(price);
+            //System.out.println(price2);
             
             
             if (cart.equals("") || book.equals("")){
@@ -88,6 +93,16 @@ public class CartServlet extends HttpServlet {
             	}
             	
             }
+            String finalPrice = session.getAttribute("price").toString();
+        	System.out.println("This is finalPrice: " + finalPrice);
+        	Double sum = ParsedTotal.parseString(finalPrice);
+        	Context context = new Context(new ParsedTotal());
+        	double tax = context.executeStrategy(sum, .09);//tax is .09
+        	context = new Context(new IncludeTax());
+        	double totalPrice = context.executeStrategy(sum, tax);
+        	System.out.print("This is total Price: " + totalPrice);
+        	session.setAttribute("totalPrice", totalPrice);
+            
             	
 
 			RequestDispatcher rd = request.getRequestDispatcher("cart.jsp");
