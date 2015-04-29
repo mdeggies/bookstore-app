@@ -49,18 +49,18 @@ public class LoginServlet extends HttpServlet {
         	
         	
     		//for testing////////////
-    		Double x = GetQuery.getPrice("into the wild");
-    		System.out.println(x);
-    		ArrayList<Books> y = new ArrayList<Books>();
-    		y = GetQuery.getAuthor("robert kirkman");
-    		if (y.size() > 0){
-    		System.out.println(y.get(0).title());
-    		}
-    		y = new ArrayList<Books>();
-    		y = GetQuery.getCategory("Mystery");
-    		System.out.println(y.get(0).title());
-    		y = new ArrayList<Books>();
-    		System.out.println(GetQuery.allBooks().size());
+    		//Double x = GetQuery.getPrice("into the wild");
+    		//System.out.println(x);
+    		//ArrayList<Books> y = new ArrayList<Books>();
+    		//y = GetQuery.getAuthor("robert kirkman");
+    		//if (y.size() > 0){
+    		//System.out.println(y.get(0).title());
+    		//}
+    		//y = new ArrayList<Books>();
+    		//y = GetQuery.getCategory("Mystery");
+    		//System.out.println(y.get(0).title());
+    		//y = new ArrayList<Books>();
+    		//System.out.println(GetQuery.allBooks().size());
     		//end testing////////////////////
     		
     		
