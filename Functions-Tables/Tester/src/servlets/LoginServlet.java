@@ -59,6 +59,8 @@ public class LoginServlet extends HttpServlet {
     		y = new ArrayList<Books>();
     		y = GetQuery.getCategory("Mystery");
     		System.out.println(y.get(0).title());
+    		y = new ArrayList<Books>();
+    		System.out.println(GetQuery.allBooks().size());
     		//end testing////////////////////
     		
     		

@@ -44,6 +44,30 @@ public class GetQuery{
 		return answer;
 	}
 		
+	public static ArrayList<Books> allBooks(){
+		ArrayList<Books> a = new ArrayList<Books>();
+		String[] c = {"MYSTERY", "FICTION", "NONFICTION", "HORROR", "ADULT"};
+		try{
+			db = DBAccess.getInstance();
+			conn = db.getConnection();
+			String temp;
+			for (int j = 0; j < c.length; j++){
+				stmt = conn.prepareStatement("SELECT " + c[j] + " FROM CATEGORY");
+				ResultSet rs = stmt.executeQuery();
+            
+				if (rs.next()){
+					temp = rs.getString(1);
+					for (int i = 0; i < getBook(temp).size(); i++){
+						a.add(getBook(temp).get(i));
+					}
+				}
+			}
+		}
+		catch(SQLException e){
+			e.printStackTrace();
+		}
+		return a;
+	}
 	
 	public static ArrayList<Books> getAuthor(String author){
 		//returns specific book(s)
