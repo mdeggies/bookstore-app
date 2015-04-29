@@ -1,48 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<%@ page import="java.util.*" %>
-<title>Register</title>
-<style type="text/css">
-body {
-	background-color: "white";
-	background-attachment: fixed;
-}
-div.font{
-	font-size: 200%;
-}
-
-</style>
-<title>Cart</title>
-</head>
-<body>
-		<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Book Store</a>
-    </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li><a href="welcome.jsp">Home</a></li>
-        <li><a href="mystery.jsp">Mystery</a></li>
-        <li><a href="fiction.jsp">Fiction</a></li>
-        <li><a href="nonfiction.jsp">Non-Fiction</a></li>
-        <li><a href="horror.jsp">Horror</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="account.jsp"><span class="glyphicon glyphicon-user"></span> <%=session.getAttribute("username")%></a></li>
-        <li class="active"><a href="cart.jsp"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<div class="container">
+<%@ include file="header.jsp" %>
 	<div class = "font">
 	<form action="cartServlet" method="post">  
 		<div class="jumbotron">
@@ -138,7 +94,6 @@ div.font{
    	</div>
    	</form>
    </div>
-   	</div>
    	
    	
    	<script type="text/javascript">
@@ -171,7 +126,6 @@ div.font{
 		document.getElementById("total").innerHTML = total;
 
 		
-	</script>
-  	 
-</body>
-</html>
+	</script>   	
+
+<%@ include file="footer.jsp" %>
