@@ -30,7 +30,7 @@ public class CartServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	final static String db_table = "Cart";
+	final static String db_table = "cart";
     final HashMap<String, Double> hm = Books.returnList();
 	
 	static Connection conn;

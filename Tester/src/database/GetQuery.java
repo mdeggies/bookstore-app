@@ -13,7 +13,7 @@ public class GetQuery{
 	private static ArrayList<String> tempBook;
 	//The format for each string is as follows (<book name>)(<book name>)
 	
-	final static String db_table2 = "Detail";
+	final static String db_table2 = "detail";
 	
 	public static ArrayList<Books> getCategory(String cat){
 		cat = cat.toUpperCase();
@@ -108,15 +108,11 @@ public class GetQuery{
 			db = DBAccess.getInstance();
 			conn = db.getConnection();
 			Books temp;
-			//ArrayList<Books> a = new ArrayList<Books>();
-			//conn.getConnection();
 			stmt = conn.prepareStatement("SELECT * FROM detail WHERE BOOKNAME = '" + book + "'");
             ResultSet rs = stmt.executeQuery();
             formattedRequest = "";
             while (rs.next()){
             	temp = new Books(rs.getString(1), rs.getString(2), rs.getString(3));
-            	//temp = "(" + rs.getString(1) + "," + rs.getString(2) + "," + rs.getString(3) + ")";
-                //formattedRequest = formattedRequest + temp;
             	a.add(temp);
             }
 		}
@@ -131,8 +127,8 @@ public class GetQuery{
 			double val = 0;
 			System.out.println(book);
 			try{
-				//create connection
 				
+				//create connection
 				val = 1;
 				DBAccess connect = DBAccess.getInstance();
 		    	conn=connect.getConnection();
@@ -151,7 +147,6 @@ public class GetQuery{
 			}
 			return val;
 		}
-		
 		
 	//Might not should go here-Parses formatted string into whatever html
 	//that will display the results (in a grid of length 4). This works for title, author and category

@@ -30,7 +30,7 @@ public class CheckoutServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
-	final static String db_table = "Information";
+	final static String db_table = "information";
 	
 	static Connection conn;
 	static Statement stmt = null;
