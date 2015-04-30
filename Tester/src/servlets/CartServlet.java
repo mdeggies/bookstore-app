@@ -46,7 +46,7 @@ public class CartServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");    
         PrintWriter out = response.getWriter();       
-        //out.print("hi");
+        
         try {
         	//connect to db
         	DBAccess connect = DBAccess.getInstance();
@@ -58,9 +58,8 @@ public class CartServlet extends HttpServlet {
         	
         	String cart = session.getAttribute("cart").toString();
         	String price2 = session.getAttribute("price").toString();
+        	
         	//get user input
-        	
-        	
             String book = request.getParameter("book");
             String book2 = book.toLowerCase();
             book2 = book2.substring(0, book.length() - 1);
@@ -89,10 +88,9 @@ public class CartServlet extends HttpServlet {
             		session.setAttribute("cart", cart + book);
             		session.setAttribute("price", price2 + price.toString() + "/");
             		l.add(book);
-            		
             	}
-            	
             }
+            
             String finalPrice = session.getAttribute("price").toString();
         	System.out.println("This is finalPrice: " + finalPrice);
         	Double sum = ParsedTotal.parseString(finalPrice);
@@ -103,13 +101,8 @@ public class CartServlet extends HttpServlet {
         	System.out.print("This is total Price: " + totalPrice);
         	session.setAttribute("totalPrice", totalPrice);
             
-            	
-
 			RequestDispatcher rd = request.getRequestDispatcher("cart.jsp");
 			rd.forward(request, response);
-			
-        		
-        	
         }
         catch(SQLException se) {
         	//handle jdbc errors
@@ -128,7 +121,5 @@ public class CartServlet extends HttpServlet {
 	public static double getPrices(String book){
 		double x = GetQuery.getPrice(book);
 		return x;
-		
-		
 	}
 }
