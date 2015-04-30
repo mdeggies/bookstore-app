@@ -86,8 +86,10 @@ public class CheckoutServlet extends HttpServlet {
         				*/
         			}
         			else {
+            			//print error msg 
+            			out.print("<p style=\"color:red\">You didn't have enough store credit for the purchase. Please login again for security purposes.</p>");  
             			//send user back to welcome page 
-        				RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");    
+        				RequestDispatcher rd=request.getRequestDispatcher("login.jsp");    
         				rd.include(request,response);    
         			}
         		}
@@ -113,9 +115,11 @@ public class CheckoutServlet extends HttpServlet {
         				*/
         			}
         			else {
+            			//print error msg 
+            			out.print("<p style=\"color:red\">There was a problem authenticating your credit card. Please login again for security purposes.</p>");  
             			//send user back to welcome page 
-            			RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");    
-            			rd.include(request,response);    
+        				RequestDispatcher rd=request.getRequestDispatcher("login.jsp");    
+        				rd.include(request,response);   
         			}
         		}
         	}
