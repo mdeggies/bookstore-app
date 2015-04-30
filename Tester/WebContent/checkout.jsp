@@ -1,3 +1,15 @@
+<%@ page import="java.io.*,java.util.*" language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<!-- If someone is trying to get to welcome.jsp without being logged in,
+redirect them to login page . -->
+<%  
+     if (session.getAttribute("username") == null) {  
+    	    String redirectURL = "http://localhost:8080/Tester/login.jsp";
+    	    response.sendRedirect(redirectURL);
+     }
+  %>
+
 <%@ include file="header.jsp" %>
 	<div class = "font">
 	<form action="cartServlet" method="post">  
