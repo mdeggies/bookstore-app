@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,7 +24,7 @@ import database.GetQuery;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	final static String db_table = "Information";
+	final static String db_table = "information";
 	
 	static Connection conn;
 	static Statement stmt = null;
@@ -46,23 +45,6 @@ public class LoginServlet extends HttpServlet {
         	//connect to db
         	DBAccess connect = DBAccess.getInstance();
         	conn=connect.getConnection();
-        	
-        	
-    		//for testing////////////
-    		//Double x = GetQuery.getPrice("into the wild");
-    		//System.out.println(x);
-    		//ArrayList<Books> y = new ArrayList<Books>();
-    		//y = GetQuery.getAuthor("robert kirkman");
-    		//if (y.size() > 0){
-    		//System.out.println(y.get(0).title());
-    		//}
-    		//y = new ArrayList<Books>();
-    		//y = GetQuery.getCategory("Mystery");
-    		//System.out.println(y.get(0).title());
-    		//y = new ArrayList<Books>();
-    		//System.out.println(GetQuery.allBooks().size());
-    		//end testing////////////////////
-    		
     		
             HttpSession session = request.getSession(false); 
             if(session!=null){  

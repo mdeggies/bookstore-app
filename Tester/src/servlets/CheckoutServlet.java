@@ -85,8 +85,13 @@ public class CheckoutServlet extends HttpServlet {
         				pstmt.executeQuery();
         				*/
         			}
+        			else {
+            			//send user back to welcome page 
+        				RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");    
+        				rd.include(request,response);    
+        			}
         		}
-        		}
+        	}
         	else{
         		
         		String query = "SELECT * FROM " + db_table + " WHERE username = ? AND PASSWORD = ?";
@@ -107,15 +112,13 @@ public class CheckoutServlet extends HttpServlet {
         				pstmt.executeQuery();
         				*/
         			}
+        			else {
+            			//send user back to welcome page 
+            			RequestDispatcher rd=request.getRequestDispatcher("welcome.jsp");    
+            			rd.include(request,response);    
+        			}
         		}
         	}
-            	
-
-			//RequestDispatcher rd = request.getRequestDispatcher("checkout.jsp");
-			//rd.forward(request, response);
-			
-        		
-        	
         }
         catch(SQLException se) {
         	//handle jdbc errors

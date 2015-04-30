@@ -26,7 +26,7 @@ import database.DBAccess;
 public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	final static String db_table = "Information";
+	final static String db_table = "information";
 
 	static Connection conn;
 	static Statement stmt = null;
@@ -94,8 +94,6 @@ public class RegisterServlet extends HttpServlet {
 						pstmt.setString(6, credit_card_info);
 						pstmt.setString(7, store_credit);
 						pstmt.executeUpdate(); 
-						
-						
 
 						//print successful registration msg 
 						out.print("<p style=\"color:red\">Registration successful! Please login</p>");    
